@@ -32,15 +32,17 @@ svg{width:100%;height:auto;max-height:56vh}
 .title svg{max-width:420px;max-height:34vh}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;flex:1;align-content:center}
 .card{background:var(--bg2);border-top:4px solid var(--o);border-radius:10px;padding:14px;font-size:clamp(14px,1.7vw,18px);line-height:1.4}
+.note{margin-top:14px;border:2px solid var(--o);border-radius:10px;padding:.7em 1em;background:var(--bg2);font-size:clamp(14px,1.7vw,18px);line-height:1.45}
 .card big{display:block;color:var(--o);font-size:2.2em;font-weight:800}
 nav{height:52px;display:flex;align-items:center;gap:12px;padding:0 5vw;flex:none}
 nav button{background:var(--o);color:var(--bg);border:0;border-radius:8px;font-weight:700;font-size:16px;padding:8px 18px;cursor:pointer}
 .track{flex:1;height:5px;background:var(--bg2);border-radius:3px}
 #bar{height:100%;width:0;background:var(--o);border-radius:3px}
 #c{font-size:14px;min-width:54px;text-align:right}
+@media(min-width:761px){.cols.wide{grid-template-columns:.8fr 1.3fr}}
 </style>
 </head>
-<body>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="pha" markerWidth="4" markerHeight="4" viewBox="0 0 10 10" refX="7" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ff8a1f"/></marker><marker id="phw" markerWidth="4" markerHeight="4" viewBox="0 0 10 10" refX="7" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#fff"/></marker></defs></svg>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="dr" viewBox="0 0 400 300">
 <path class="s" stroke-width="8" d="M200 150L70 50M200 150L330 50M200 150L70 250M200 150L330 250"/>
@@ -112,20 +114,72 @@ nav button{background:var(--o);color:var(--bg);border:0;border-radius:8px;font-w
 </section>
 
 <section>
-<h2>3 <span>Propellers</span></h2>
+<h2>3 <span>Propellers</span>: Blade Shape</h2>
 <div class="cols">
 <ul>
-<li>Blades <b>push air downward</b>, the air pushes the drone up</li>
-<li>Spin direction is paired: <b>CW and CCW</b> cancel each other’s twist</li>
-<li>Fits on the <b>motor shaft</b>, check the arrow on the blade</li>
-<li>Bigger blades give more lift but spin slower</li>
+<li>A propeller is a <b>small rotating wing</b>: thin and flat</li>
+<li><b>Rounded leading edge</b> cuts into the air, <b>sharp trailing edge</b> lets it leave smoothly</li>
+<li><b>Narrow at the root, wide at the tip</b>: the tip moves fastest, so it does the most work</li>
+<li>The blade is <b>twisted</b>: steeper near the hub, flatter at the tip, so lift is even along it</li>
+<li>The <b>hub</b> hole grips the motor shaft</li>
 </ul>
-<svg viewBox="0 0 480 280">
-<path class="s" stroke-width="6" d="M130 90L270 190M270 90L130 190"/>
-<g class="so" stroke-dasharray="6 5"><circle cx="110" cy="70" r="50"/><circle cx="290" cy="70" r="50"/><circle cx="110" cy="210" r="50"/><circle cx="290" cy="210" r="50"/></g>
-<g class="fo"><ellipse cx="110" cy="70" rx="38" ry="8" transform="rotate(-30 110 70)"/><ellipse cx="290" cy="70" rx="38" ry="8" transform="rotate(30 290 70)"/><ellipse cx="110" cy="210" rx="38" ry="8" transform="rotate(30 110 210)"/><ellipse cx="290" cy="210" rx="38" ry="8" transform="rotate(-30 290 210)"/></g>
-<text class="t" x="94" y="30">CW</text><text class="t" x="272" y="30">CCW</text><text class="t" x="90" y="270">CCW</text><text class="t" x="278" y="270">CW</text>
-<path class="so" stroke-width="1.8" d="M323 89H385M290 210H385"/><g class="fo"><circle cx="323" cy="89" r="4"/><circle cx="290" cy="210" r="4"/></g><text class="to" x="392" y="94">Propeller</text><text class="to" x="392" y="215">Motor</text>
+<svg viewBox="0 40 340 190" style="flex:1;min-height:0;max-height:62vh">
+<g transform="translate(150,130)" stroke="#fff" stroke-width="2" fill="#ff8a1f">
+<path id="bl" d="M10 -7C35 -26 78 -32 104 -18C113 -10 111 4 100 9C70 15 38 11 10 7Z"/>
+<path d="M10 -7C35 -26 78 -32 104 -18C113 -10 111 4 100 9C70 15 38 11 10 7Z" transform="rotate(180)"/>
+<circle r="13" fill="#fff" stroke="none"/><circle r="4" fill="#0a1a3a" stroke="none"/>
+</g>
+<path d="M278 112V168M22 148V92" stroke="#ff8a1f" stroke-width="4" fill="none" marker-end="url(#pha)"/>
+<path d="M207 105L214 66M204 142V196M150 117V78M50 150L40 196" stroke="#ff8a1f" stroke-width="1.8" fill="none"/>
+<g fill="#ff8a1f"><circle cx="207" cy="105" r="4"/><circle cx="204" cy="142" r="4"/><circle cx="150" cy="117" r="4"/><circle cx="50" cy="150" r="4"/></g>
+<g class="to"><text x="226" y="60" text-anchor="middle">Trailing edge</text><text x="204" y="214" text-anchor="middle">Leading edge</text><text x="150" y="68" text-anchor="middle" dx="-30">Hub</text><text x="40" y="214" text-anchor="middle">Wide tip</text><text x="288" y="144">Spin</text></g>
+
+</svg>
+</div>
+</section>
+
+<section>
+<h2>3 <span>Propellers</span>: Making Lift</h2>
+<div class="cols">
+<ul>
+<li>As it spins, the blade is <b>tilted (pitched)</b> against the air</li>
+<li>It bites the air and <b>throws it downward</b></li>
+<li>The air pushes back up on the blade, and that is <b>lift</b></li>
+<li>Bigger or steeper blades give <b>more lift</b> but need <b>more power</b></li>
+</ul>
+<svg viewBox="0 290 480 150" style="flex:1;min-height:0;max-height:62vh">
+
+<g transform="translate(200,360) rotate(12)" fill="#ff8a1f" stroke="#fff" stroke-width="2"><path d="M-70 0C-60 -14 -20 -22 20 -16C50 -12 62 -4 72 6C30 6 -30 10 -70 0Z"/></g>
+<path d="M118 360H282" stroke="#fff" stroke-width="1.5" stroke-dasharray="5 4" opacity=".7"/>
+<path d="M150 360A50 50 0 0 1 151 349.6" stroke="#ff8a1f" stroke-width="2.5" fill="none"/>
+<g stroke="#fff" stroke-width="2.5" fill="none"><path d="M20 330H112" marker-end="url(#phw)"/><path d="M20 352H112" marker-end="url(#phw)"/><path d="M20 374H112" marker-end="url(#phw)"/><path d="M268 376L290 414" marker-end="url(#phw)"/><path d="M282 366L312 404" marker-end="url(#phw)"/></g>
+<path d="M200 338V306" stroke="#ff8a1f" stroke-width="5" fill="none" marker-end="url(#pha)"/>
+<path d="M150 358V408M225 356L322 354" stroke="#ff8a1f" stroke-width="1.8" fill="none"/>
+<g fill="#fff"><circle cx="225" cy="356" r="4"/></g><circle cx="150" cy="358" r="4" fill="#ff8a1f"/>
+<g class="to"><text x="22" y="320">Incoming air</text><text x="212" y="320" dx="14">Lift, pushes drone up</text><text x="328" y="358">Blade section</text><text x="150" y="426" text-anchor="middle">Pitch angle</text><text x="322" y="414">Air pushed down</text></g>
+</svg>
+</div>
+</section>
+
+<section>
+<h2>3 <span>Propellers</span>: CW and CCW</h2>
+<div class="cols">
+<ul>
+<li>A spinning propeller <b>twists the drone the opposite way</b></li>
+<li>Two props turn <b>clockwise</b>, two <b>anticlockwise</b>, in opposite pairs, so the twists cancel</li>
+<li>Mount each prop on its matching motor with the <b>leading edge facing the spin</b> and the curved face up</li>
+<li>Speeding up one pair and slowing the other <b>turns the drone</b> (yaw)</li>
+</ul>
+<svg viewBox="320 30 230 205" style="flex:1;min-height:0;max-height:62vh">
+<path d="M360 70L500 190M500 70L360 190" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+<rect x="410" y="115" width="40" height="30" rx="6" fill="#12295c" stroke="#fff" stroke-width="3"/>
+<g fill="none" stroke="#ff8a1f" stroke-width="1.5" stroke-dasharray="5 4"><circle cx="360" cy="70" r="34"/><circle cx="500" cy="70" r="34"/><circle cx="360" cy="190" r="34"/><circle cx="500" cy="190" r="34"/></g>
+<g transform="translate(360,70)"><path d="M-4 22A22 22 0 1 1 21 -8" stroke="#ff8a1f" stroke-width="2.5" fill="none" marker-end="url(#pha)"/><text class="to" y="5" text-anchor="middle" style="font-size:13px">CW</text></g>
+<g transform="translate(500,190)"><path d="M-4 22A22 22 0 1 1 21 -8" stroke="#ff8a1f" stroke-width="2.5" fill="none" marker-end="url(#pha)"/><text class="to" y="5" text-anchor="middle" style="font-size:13px">CW</text></g>
+<g transform="translate(500,70)"><path d="M4 22A22 22 0 1 0 -21 -8" stroke="#fff" stroke-width="2.5" fill="none" marker-end="url(#phw)"/><text class="t" y="5" text-anchor="middle" style="font-size:13px;font-weight:700">CCW</text></g>
+<g transform="translate(360,190)"><path d="M4 22A22 22 0 1 0 -21 -8" stroke="#fff" stroke-width="2.5" fill="none" marker-end="url(#phw)"/><text class="t" y="5" text-anchor="middle" style="font-size:13px;font-weight:700">CCW</text></g>
+
+
 </svg>
 </div>
 </section>
@@ -160,16 +214,17 @@ nav button{background:var(--o);color:var(--bg);border:0;border-radius:8px;font-w
 <li>Stores the <b>energy</b> for the whole drone</li>
 <li><b>LiPo</b> cells are light and give high current</li>
 <li>Capacity in <b>mAh</b> sets flight time, more mAh means more weight</li>
-<li>Plug or solder to the board with <b>correct polarity</b></li>
+<li>Connect to the board with <b>correct polarity</b>: red to positive (+), black to negative (-)</li>
 <li>Never over-discharge, charge with a proper charger</li>
 </ul>
-<svg viewBox="0 0 380 220">
-<rect class="s f" x="40" y="60" width="220" height="100" rx="12"/>
-<g class="so"><path d="M110 60v100M180 60v100"/></g>
-<path class="s" d="M260 110h60"/><rect class="so f" x="320" y="95" width="34" height="30" rx="4"/>
-<path class="so" d="M70 60l12 24h-24z" fill="#ff8a1f"/>
-<path class="so" stroke-width="1.8" d="M75 160V182H220V160M148 182V194M337 95V62M290 110V156"/><g class="fo"><circle cx="337" cy="95" r="4"/><circle cx="290" cy="110" r="4"/></g>
-<text class="to" x="148" y="212" text-anchor="middle">Cells</text><text class="to" x="337" y="54" text-anchor="middle">Plug</text><text class="to" x="290" y="174" text-anchor="middle">Red +, black -</text>
+<svg viewBox="0 0 480 240">
+<rect class="s f" x="40" y="70" width="200" height="100" rx="12"/>
+<g class="so"><path d="M107 70v100M173 70v100"/></g>
+<g fill="none" stroke-linecap="round"><path d="M240 100H340M240 140H340" stroke="#fff" stroke-width="10"/><path d="M240 100H340" stroke="#ff3b3b" stroke-width="6"/><path d="M240 140H340" stroke="#0a0a0a" stroke-width="6"/></g>
+<rect class="s f" x="340" y="85" width="40" height="70" rx="6"/>
+<path class="so" stroke-width="1.8" d="M73 170V190H207V170M140 190V202M300 100V62M300 140V190M380 120H410"/>
+<g class="fo"><circle cx="300" cy="100" r="4"/><circle cx="300" cy="140" r="4"/><circle cx="380" cy="120" r="4"/></g>
+<text class="to" x="140" y="222" text-anchor="middle">Cells</text><text class="to" x="300" y="54" text-anchor="middle">Positive (+), red wire</text><text class="to" x="300" y="208" text-anchor="middle">Negative (-), black wire</text><text class="to" x="416" y="125">Plug</text>
 </svg>
 </div>
 </section>
@@ -219,6 +274,7 @@ nav button{background:var(--o);color:var(--bg);border:0;border-radius:8px;font-w
 <div class="card"><big>4</big>Attach the <b class="o">battery</b> and secure it</div>
 <div class="card"><big>5</big>Fit <b class="o">propellers</b> last, matching CW and CCW</div>
 </div>
+<div class="note"><b class="o">Note:</b> the <b>ESC</b> and the <b>radio receiver</b> are already built into the flight controller board, so there is nothing separate to mount or wire. Only the motors and the battery connect to the board.</div>
 </section>
 
 <section>
